@@ -6,7 +6,11 @@
   "main": "index.js",
   "scripts": {
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i --coverage",
-    "dev": "nodemon src/server.ts"
+    "test:unit": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit",
+    "start": "ts-node src/server.ts",
+    "dev": "nodemon src/server.ts",
+    "dev:test": "dotenv -e .env.test nodemon src/server.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
